@@ -5,7 +5,6 @@ pipeline {
   options {
     timestamps()
     timeout(time: 20, unit: 'MINUTES')
-    // skipDefaultCheckout(true) // enable if you want to control checkout explicitly
   }
 
   stages {
@@ -39,13 +38,8 @@ pipeline {
       }
     }
 
-    stage('Build') {
-      steps { echo '🏗️ Building project...' }
-    }
-
-    stage('Test') {
-      steps { echo '🧪 Running tests...' }
-    }
+    stage('Build') { steps { echo '🏗️ Building project...' } }
+    stage('Test')  { steps { echo '🧪 Running tests...' } }
   }
 
   post {
